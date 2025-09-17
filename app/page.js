@@ -1,103 +1,173 @@
+"use client";
+
 import Image from "next/image";
+import { Plus, Search } from "lucide-react";
+import SongCard from "../component/card";
+import PopularArtist from "../component/popularArtist";
+import SignUp from "./signing";
+import Link from "next/link";
+import Footer from "../component/footer";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const songs = [
+    {
+      id: 1,
+      rank: 1,
+      image: "/assets/frame 185 (3).png",
+      title: "Softcore",
+      artist: "The Neighbourhood",
+      releaseDate: "Nov 4, 2023",
+      album: "Hard to Imagine the Neighbourhood Ever Changing",
+      time: "3:26",
+    },
+    {
+      id: 2,
+      rank: 2,
+      image: "/assets/SkyfallBeats.png",
+      title: "Skyfall Beats",
+      artist: "Nightmares",
+      releaseDate: "Oct 26, 2023",
+      album: "Nightmares",
+      time: "2:45",
+    },
+    {
+      id: 3,
+      rank: 3,
+      image: "/assets/Greedy.png",
+      title: "Greedy",
+      artist: "Tate McRae",
+      releaseDate: "Dec 30, 2023",
+      album: "Greedy",
+      time: "2:11",
+    },
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+  return (
+    <>
+      {/* Hero Section */}
+      <div
+        className="h-[550px] w-full bg-cover bg-center rounded-xl"
+        style={{ backgroundImage: 'url("/assets/hero-img.png")' }}
+      >
+        <div className="flex items-center justify-between p-4">
+          <div className="relative md:w-80 w-40 bg-[#1f1f1f] rounded-md">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
+            <input
+              type="text"
+              placeholder="Search..."
+              className="w-full pl-10 pr-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#EE10B0] text-white"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
+          <button className="md:w-[120px] w-[80px] px-4 py-2 text-[#EE10B0] hover:text-white hover:bg-[#EE10B0] rounded-md border border-[#EE10B0] cursor-pointer">
+            Login
+          </button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        <div className="grid grid-cols-1 md:w-[450px] gap-4 items-center h-full px-8 md:px-16">
+          <div className="text-white space-y-">
+            <h1 className="text-3xl md:text-4xl font-bold mb-3">
+              All the <span className="text-[#EE10B0]">Best Songs</span> <br /> in One Place
+            </h1>
+            <p className="text-[12px] font-light mb-3">
+              On our website, you can access an amazing collection of popular and new songs. Stream your favorite tracks in high quality and enjoy without interruptions. Whatever your taste in music, we have it all for you!
+            </p>
+            <div className="sm:flex gap-4">
+              <button className="bg-[#EE10B0] text-white px-4 py-2 rounded-md hover:bg-pink-600 cursor-pointer sm:mb-0 mb-2">
+                Discover Now
+              </button>
+              <button className="bg-transparent border border-[#0E9EEF] text-[#0E9EEF] px-4 py-2 rounded-md hover:bg-[#0E9EEF] hover:text-black cursor-pointer">
+                Create Playlist
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Trending Songs */}
+      <div>
+        <h2 className="text-2xl font-semibold text-white mt-8 mb-4">
+          Trending <span className="text-[#EE10B0]">Songs</span>
+        </h2>
+
+        <div>
+          {songs.map((song) => (
+            <div
+              key={song.id} // ✅ fixed key
+              className="grid grid-cols-[40px_1fr_60px] sm:grid-cols-[50px_1fr_100px_80px] lg:grid-cols-[60px_1fr_150px_1fr_80px] px-4 items-center bg-[#1E1E1E] hover:bg-neutral-800 rounded-lg mb-2 transition"
+            >
+              <span className="text-white text-sm sm:text-base">{song.rank}</span>
+
+              <div className="flex items-center gap-3">
+                <Image src={song.image} alt={song.title} width={40} height={40} className="rounded" />
+                <div>
+                  <div className="text-sm sm:text-base lg:text-xl text-white font-semibold truncate">
+                    {song.title}
+                  </div>
+                  <div className="text-gray-400 text-xs sm:text-sm">{song.artist}</div>
+                </div>
+              </div>
+
+              <span className="hidden sm:block text-sm lg:text-[16px] text-white">
+                {song.releaseDate}
+              </span>
+
+              <span className="hidden lg:block text-sm lg:text-[16px] text-white truncate">
+                {song.album}
+              </span>
+
+              <span className="text-[14px] lg:text-[16px] text-white flex items-center justify-end gap-2">
+                <Image src="/assets/ph_heart-light.png" alt="like" width={18} height={18} />
+                {song.time}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex justify-center py-4">
+          <Link href="/albums">
+            <button className="px-6 py-2 bg-neutral-800 text-gray-300 rounded-lg hover:bg-neutral-700 transition">
+              + View All
+            </button>
+          </Link>
+        </div>
+      </div>
+
+      {/* Popular Artists */}
+      <div>
+        <h2 className="text-2xl font-semibold text-white mt-8 mb-4 ">
+          Popular <span className="text-[#EE10B0]">Artists</span>
+        </h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6 mt-4">
+          <PopularArtist image="/assets/artist1.png" name="Eminem" />
+          <PopularArtist image="/assets/artist2.png" name="The Weeknd" />
+          <PopularArtist image="/assets/artist3.png" name="Adele" />
+          <PopularArtist image="/assets/artist4.png" name="Lana Del Rey" />
+          <PopularArtist image="/assets/artist5.png" name="Harry Styles" />
+          <PopularArtist image="/assets/artist6.png" name="Billie Eilish" />
+          <div className="w-20 flex flex-col items-center justify-center">
+            <Plus className="mx-auto mb-3 text-gray-400 rounded-full p-2 bg-neutral-800 transition cursor-pointer" size={40} />
+            <h3 className=" text-sm font-semibold text-white text-center">View All</h3>
+          </div>
+        </div>
+      </div>
+
+      {/* Sign Up Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-16 mb-8 ">
+        <div className="flex flex-col items-center justify-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 text-white self-start">
+            Join Our Platform
+          </h2>
+          <p className="text-xl font-normal text-white">
+            You can be one of the <span className="text-[#EE10B0]">members</span> of our platform by just adding some necessary information. If you already have an account, you can just hit the{" "}
+            <span className="text-[#0E9EEF]">Login button</span>.
+          </p>
+        </div>
+        <div>
+          <SignUp />
+        </div>
+      </div>
+
+      <Footer />
+    </>
   );
 }
