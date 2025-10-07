@@ -2,7 +2,7 @@
 import { useParams } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import trendingSongs from "../../../data/trendingSongs";
+import trendingSongs from "../../../data/trendingSongs"
 import { 
   Play, 
   Pause, 

@@ -2,8 +2,8 @@ import React from 'react'
 import Image from 'next/image'
 
 import Link from 'next/link'
-import Footer from '../../component/footer'
-import TrendingSongs from '../../component/TrendingSong'
+import Footer from '../../components/footer'
+import TrendingSongs from '../../components/TrendingSong'
 
 function page() {
   return (

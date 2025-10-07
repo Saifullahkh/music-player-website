@@ -1,9 +1,9 @@
 import React from 'react'
 import { Search, Plus } from "lucide-react";
 import Image from 'next/image';
-import SongCard from '@/component/card';
-import PopularArtist from '@/component/popularArtist';
-import Footer from '@/component/footer';
+import SongCard from '../../components/card';
+import PopularArtist from '../../components/popularArtist';
+import Footer from '../../components/footer';
 
 function page() {
   return (

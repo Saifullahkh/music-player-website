@@ -1,11 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
-import TrendingSongs from '../component/TrendingSong'
+
 import Link from 'next/link'
-import SongCard from '@/component/card'
+import SongCard from '../../components/card'
 import { Plus } from 'lucide-react'
-import PopularArtist from '@/app/component/popularArtist'
-import Footer from '@/app/component/footer'
+import PopularArtist from '../../components/popularArtist'
+import Footer from '../../components/footer'
 
 function page() {
   return (

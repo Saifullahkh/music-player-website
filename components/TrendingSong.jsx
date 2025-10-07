@@ -1,5 +1,6 @@
 "use client";
 import trendingSong from "../data/trendingSongs";
+
 import Image from "next/image";
 import Link from "next/link";
 
