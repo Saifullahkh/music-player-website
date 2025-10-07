@@ -2,11 +2,14 @@
 
 import Image from "next/image";
 import { Plus, Search } from "lucide-react";
-import SongCard from "../component/card";
-import PopularArtist from "../component/popularArtist";
+
+import PopularArtist from "../components/popularArtist";
+import Footer from "../components/footer";
+
+
 import SignUp from "./signing";
 import Link from "next/link";
-import Footer from "../component/footer";
+
 
 export default function Home() {
   const songs = [
